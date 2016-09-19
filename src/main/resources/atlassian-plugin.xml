@@ -32,7 +32,7 @@
         <configuration class="com.entertainment.bamboo.plugins.tasks.GitInfoTaskConfigurator"/>
         <resource type="freemarker" name="edit" location="com/entertainment/bamboo/plugins/gitinfo/templates/gitInfoTaskView.ftl"/>
         <resource type="freemarker" name="view" location="com/entertainment/bamboo/plugins/gitinfo/templates/gitInfoTaskView.ftl"/>
-        <resource type="download" name="icon" location="images/gitinfotaskIcon.png" />
+        <resource type="download" name="icon" location="images/gitinfotaskLogo.png" />
     </taskType>
 
 </atlassian-plugin>
