@@ -3,8 +3,8 @@
         <description>${project.description}</description>
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
-        <param name="plugin-icon">images/pluginIcon.png</param>
-        <param name="plugin-logo">images/pluginLogo.png</param>
+        <param name="plugin-icon">com/entertainment/bamboo/plugins/gitinfo/images/gitinfotaskIcon.png</param>
+        <param name="plugin-logo">com/entertainment/bamboo/plugins/gitinfo/images/gitinfotaskLogo.png</param>
     </plugin-info>
 
     <!-- add our i18n resource -->
@@ -32,7 +32,7 @@
         <configuration class="com.entertainment.bamboo.plugins.tasks.GitInfoTaskConfigurator"/>
         <resource type="freemarker" name="edit" location="com/entertainment/bamboo/plugins/gitinfo/templates/gitInfoTaskView.ftl"/>
         <resource type="freemarker" name="view" location="com/entertainment/bamboo/plugins/gitinfo/templates/gitInfoTaskView.ftl"/>
-        <resource type="download" name="icon" location="images/gitinfotaskLogo.png" />
+        <resource type="download" name="icon" location="com/entertainment/bamboo/plugins/gitinfo/images/gitinfotaskIcon.png" />
     </taskType>
 
 </atlassian-plugin>

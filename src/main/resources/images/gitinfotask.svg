@@ -9,15 +9,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="472.44714"
-   height="414.83682"
+   width="500"
+   height="500"
    id="svg3011"
    version="1.1"
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="gitinfotask.svg"
-   inkscape:export-filename="/home/dwang/study/gitinfotask/src/main/resources/images/gitinfotask.png"
-   inkscape:export-xdpi="3.4712443"
-   inkscape:export-ydpi="3.4712443">
+   inkscape:export-filename="/home/dwang/study/gitinfotask/src/main/resources/images/gitinfotaskIcon.png"
+   inkscape:export-xdpi="14.4"
+   inkscape:export-ydpi="14.4">
   <defs
      id="defs3013">
     <marker
@@ -47,8 +47,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.2"
-     inkscape:cx="225.78118"
-     inkscape:cy="209.36853"
+     inkscape:cx="88.281182"
+     inkscape:cy="176.0352"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="false"
@@ -77,7 +77,7 @@
      id="layer1"
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     transform="translate(-174.21882,-94.531707)">
+     transform="translate(-174.21882,-9.3685339)">
     <path
        style="fill:#f05133"
        inkscape:connector-curvature="0"
