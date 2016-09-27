@@ -10,6 +10,7 @@ public class GitCommitInfo implements java.io.Serializable {
     private String tag;
     private String commitDate;
     private String commitHash;
+    private boolean isAnnotated;
 
     public String getCommitMessage() {
         return commitMessage;
@@ -59,12 +60,22 @@ public class GitCommitInfo implements java.io.Serializable {
         this.commitHash = commitHash;
     }
 
+    public boolean isAnnotated() {
+        return isAnnotated;
+    }
+
+    public void setAnnotated(boolean annotated) {
+        isAnnotated = annotated;
+    }
+
     public String getPropertiesString() {
         StringBuffer buffer = new StringBuffer();
         buffer.append("author=").append(commiter).append(System.lineSeparator());
         buffer.append("sha1=").append(commitHash).append(System.lineSeparator());
         buffer.append("tagged=").append(isTagged).append(System.lineSeparator());
+        buffer.append("annotated=").append(isAnnotated).append(System.lineSeparator());
         buffer.append("tag=").append( tag!=null ? tag : "").append(System.lineSeparator());
+        buffer.append("ref=").append( tag!=null ? tag : "").append(System.lineSeparator());
         buffer.append("time=").append(commitDate).append(System.lineSeparator());
         buffer.append("message=").append(commitMessage != null ? commitMessage.replaceAll("[\\t\\n\\r]+"," ") : "").append(System.lineSeparator());
         return buffer.toString();

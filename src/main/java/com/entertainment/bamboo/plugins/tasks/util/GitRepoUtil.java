@@ -55,6 +55,7 @@ public class GitRepoUtil {
             commitInfo.setCommitDate(""+commit.getCommitTime());
             commitInfo.setCommitMessage(commit.getFullMessage().replace(System.lineSeparator(), "\\n"));
             commitInfo.setCommitHash(lastCommitId.name());
+            commitInfo.setAnnotated(false);
             Git git = new Git(repo);
             List<Ref> call = git.tagList().call();
             List<String> tags = new LinkedList<String>();
@@ -66,11 +67,14 @@ public class GitRepoUtil {
                 Ref peeledRef = repo.peel(ref);
                 ObjectId tagId = null;
                 if(peeledRef.getPeeledObjectId() != null) {
+                    // is annotated tag
+                    commitInfo.setAnnotated(true);
                     tagId = peeledRef.getPeeledObjectId();
                 } else {
                     tagId = ref.getObjectId();
                 }
                 if (tagId.equals(lastCommitId) ){
+
                     tagFound = true;
                     String tagName = ref.getName();
                     String[] tagNameSpecs = tagName.split("/");
