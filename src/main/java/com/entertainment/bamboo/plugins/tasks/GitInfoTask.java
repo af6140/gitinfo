@@ -5,6 +5,8 @@ import com.atlassian.bamboo.configuration.ConfigurationMap;
 import com.atlassian.bamboo.task.*;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.lib.Repository;
@@ -25,14 +27,17 @@ public class GitInfoTask implements TaskType{
         final BuildLogger buildLogger = taskContext.getBuildLogger();
         ConfigurationMap configurationMap = taskContext.getConfigurationMap();
         String repoDir = configurationMap.get(GitInfoTaskConfigurator.GITINFO_REPODIR);
-        if(repoDir==null || repoDir.isEmpty()) {
+        if(repoDir==null || repoDir.trim().isEmpty()) {
+            buildLogger.addBuildLogEntry("repo dir is set empty, use current working directory as repo directory");
             repoDir= taskContext.getWorkingDirectory().getAbsolutePath();
+        }else {
+            repoDir = taskContext.getWorkingDirectory().getAbsolutePath()+"/"+repoDir;
         }
-        String gitDir = repoDir + File.separator+ ".git";
-        Repository repo = GitInfoUtil.getRepository(gitDir, 3);
+        Path p = FileSystems.getDefault().getPath(repoDir).normalize();
+        Repository repo = GitInfoUtil.getRepository(p.toString(), 2);
 
         if (repo ==null ){
-            buildLogger.addErrorLogEntry("Directory " + repoDir + " is not a git repository");
+            buildLogger.addErrorLogEntry("Directory " + p.toString() + " is not a git repository");
             return failed(taskContext);
         }
         GitCommitInfo commitInfo = GitInfoUtil.getCurrentCommit(repo);

@@ -62,10 +62,6 @@ public class GitInfoTaskConfigurator extends AbstractTaskConfigurator {
                 errorCollection.addError(GITINFO_REPODIR, "is a absolute path");
                 return;
             }
-            if (!f.isDirectory()) {
-                errorCollection.addError(GITINFO_REPODIR, "Is not a directory");
-                return;
-            }
         }
 
         final String outFile = params.getString(GitInfoTaskConfigurator.GITINFO_OUTPUT);

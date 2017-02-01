@@ -1,7 +1,7 @@
 package ut.com.entertainment.bamboo.plugins.gitinfo;
 
-import com.entertainment.bamboo.plugins.tasks.model.GitCommitInfo;
-import com.entertainment.bamboo.plugins.tasks.util.GitRepoUtil;
+import com.entertainment.cicd.util.GitCommitInfo;
+import com.entertainment.cicd.util.GitInfoUtil;
 import junit.framework.TestCase;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
@@ -75,10 +75,10 @@ public class GitRepoUtilTest extends TestCase {
     }
 
     public void testGetRepository() {
-        Repository repo = GitRepoUtil.getRepository(this.testFixturesDir+File.separator+"testrepo1"+File.separator+".git");
+        Repository repo = GitInfoUtil.getRepository(this.testFixturesDir+File.separator+"testrepo1"+File.separator+".git", 1);
         assertNotNull(repo);
         System.out.println("Repository is read");
-        GitCommitInfo info = GitRepoUtil.getCurrentCommit(repo);
+        GitCommitInfo info = GitInfoUtil.getCurrentCommit(repo);
         assertNotNull(info);
         assertTrue(info.isTagged());
         assertTrue(info.getCommitMessage().contains("Test file added."));
@@ -86,10 +86,10 @@ public class GitRepoUtilTest extends TestCase {
     }
 
     public void testGetRepositoryDetached() {
-        Repository repo = GitRepoUtil.getRepository(this.testFixturesDir+File.separator+"testrepo2"+File.separator+".git");
+        Repository repo = GitInfoUtil.getRepository(this.testFixturesDir+File.separator+"testrepo2"+File.separator+".git" , 1);
         assertNotNull(repo);
         System.out.println("Repository 2 is read");
-        GitCommitInfo info = GitRepoUtil.getCurrentCommit(repo);
+        GitCommitInfo info = GitInfoUtil.getCurrentCommit(repo);
         //System.out.println("commit info: "+info.getPropertiesString());
         assertNotNull(info);
         assertTrue(info.isTagged());
