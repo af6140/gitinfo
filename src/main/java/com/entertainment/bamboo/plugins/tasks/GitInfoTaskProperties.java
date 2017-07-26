@@ -21,7 +21,7 @@ public class GitInfoTaskProperties extends TaskProperties {
     private String gitinfoFile;
 
     private static final AtlassianModuleProperties MODULE_PROPERTIES =
-            new AtlassianModuleProperties("com.entertainment.bamboo.plugins:gitinfotask");
+            new AtlassianModuleProperties("com.entertainment.bamboo.plugins.tasks.GitInfoTask:gitinfotask");
 
     public GitInfoTaskProperties() {
         validate();
